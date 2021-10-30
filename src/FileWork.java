@@ -3,6 +3,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class FileWork {
+
+    public static final int MARKS_COUNT = 5;
+
     public void save(ArrayList<ExamResult> examResults, String fileName) throws IOException {
         FileWriter outStream = new FileWriter(fileName);
         BufferedWriter bw = new BufferedWriter(outStream);
@@ -20,7 +23,7 @@ public class FileWork {
                 bw.write(System.lineSeparator());
                 bw.write(String.valueOf(object.getCourse()));
                 bw.write(System.lineSeparator());
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < MARKS_COUNT; i++) {
                     bw.write(object.result[i].getTeacherName());
                     bw.write(System.lineSeparator());
                     bw.write(object.result[i].getSubjectName());
@@ -47,9 +50,9 @@ public class FileWork {
             int numberGradeBook;
             String facultyName;
             int course;
-            String[] subjectName = new String[5];
-            String[] teacherName = new String[5];
-            int[] mark = new int[5];
+            String[] subjectName = new String[MARKS_COUNT];
+            String[] teacherName = new String[MARKS_COUNT];
+            int[] mark = new int[MARKS_COUNT];
 
             while (scan.hasNextLine()) {
                 f = scan.nextLine();
@@ -58,7 +61,7 @@ public class FileWork {
                 numberGradeBook = Integer.valueOf(scan.nextLine());
                 facultyName = scan.nextLine();
                 course = Integer.valueOf(scan.nextLine());
-                for (int j = 0; j < 5; j++) {
+                for (int j = 0; j < MARKS_COUNT; j++) {
                     teacherName[j] = scan.nextLine();
                     subjectName[j] = scan.nextLine();
                     mark[j] = scan.nextInt();
@@ -77,5 +80,19 @@ public class FileWork {
             e.printStackTrace();
         }
 
+    }
+
+    public String lastReserveName() throws IOException {
+        File file  = new File(".");
+        File[] files = file.listFiles();
+
+        String lastFile = "";
+        for (int i = files.length - 1; i >= 0 ; i--) {
+            if(files[i].isFile() && files[i].getName().endsWith(".backup")){
+                lastFile = files[i].getName();
+                break;
+            }
+        }
+        return lastFile;
     }
 }

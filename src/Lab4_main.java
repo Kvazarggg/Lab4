@@ -91,12 +91,11 @@ public class Lab4_main {
                     exRes.loadFile(loadFileName);
                     break;
                 case 8:
-                    String loadReserve = "reserve.txt";
-                    exRes.loadFile(loadReserve);
+                    FileWork name = new FileWork();
+                    exRes.loadFile(name.lastReserveName());
                     break;
                 case 0:
-                    String saveReserve = "reserve.txt";
-                    exRes.saveFile(saveReserve);
+                    exRes.saveFile("" + (System.currentTimeMillis() / 1000) + ".backup");
                     break;
                 default:
                     System.out.println("\nТакой функции нету");
