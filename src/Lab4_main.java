@@ -17,36 +17,37 @@ public class Lab4_main {
     }
 
     public static void main(String[] args) throws IOException{
-        final String[] discipline = {"Английский", "Математика", "Программирование", "Физика", "Химия"};
+        final String[] discipline = {"English", "Math", "Programming", "Physics", "Chemistry"};
         int function;
         Scanner in = new Scanner(System.in);
 
-        exRes.add(new ExamResult("Журавлёв", "Давид", "Тимофеевич", 1, "ИКС", 2,
-                new Mark(discipline[0], "Кудряшова", 5), new Mark(discipline[1], "Фёдоров", 4),
-                new Mark(discipline[2], "Гаврилов", 4), new Mark(discipline[3], "Александров", 5),
-                new Mark(discipline[4], "Зайцева", 5)));
+        exRes.add(new ExamResult("Zhuravlev", "David", "Timofeevich", 1, "IKS", 2,
+                new Mark(discipline[0], "Kudryashova", 5), new Mark(discipline[1], "Fedorov", 4),
+                new Mark(discipline[2], "Gavrilov", 4), new Mark(discipline[3], "Aleksandrov", 5),
+                new Mark(discipline[4], "Zayceva", 5)));
 
-        exRes.add(new ExamResult("Иванов", "Иван", "Иванович", 2, "ИИРБТ", 3,
-                new Mark(discipline[0], "Маркова", 3), new Mark(discipline[1], "Фёдоров", 5),
-                new Mark(discipline[2], "Дементьев", 4), new Mark(discipline[3], "Шарапов", 2),
-                new Mark(discipline[4], "Рогова", 2)));
+        exRes.add(new ExamResult("Ivanov", "Ivan", "Ivanovich", 2, "IIRBT", 3,
+                new Mark(discipline[0], "Markova", 3), new Mark(discipline[1], "Fedorov", 5),
+                new Mark(discipline[2], "Demetiev", 4), new Mark(discipline[3], "Sharapov", 2),
+                new Mark(discipline[4], "Rogova", 2)));
 
-        exRes.add(new ExamResult("Соколова", "Ольга", "Николаевна", 2, "УНИ", 3,
-                new Mark(discipline[0], "Кудряшова", 2), new Mark(discipline[1], "Новиков", 2),
-                new Mark(discipline[2], "Дорофеев", 1), new Mark(discipline[3], "Киселёв", 2),
-                new Mark(discipline[4], "Зайцева", 2)));
+        exRes.add(new ExamResult("Sokolova", "Olga", "Nikolaevna", 2, "UNI", 3,
+                new Mark(discipline[0], "Kudryashova", 2), new Mark(discipline[1], "Novikov", 2),
+                new Mark(discipline[2], "Dorofeev", 1), new Mark(discipline[3], "Kiselev", 2),
+                new Mark(discipline[4], "Zayceva", 2)));
 
-        exRes.add(new ExamResult("Васильев", "Ростислав", "Аркадьевич", 2, "ИЕКСУ", 3,
-                new Mark(discipline[0], "Кудряшова", 3), new Mark(discipline[1], "Фёдоров", 3),
-                new Mark(discipline[2], "Дорофеев", 5), new Mark(discipline[3], "Прохоров", 5),
-                new Mark(discipline[4], "Кузьмин", 4)));
+        exRes.add(new ExamResult("Vasiliev", "Rostislav", "Arkadievich", 2, "IEKSU", 3,
+                new Mark(discipline[0], "Kudryashova", 3), new Mark(discipline[1], "Fedorov", 3),
+                new Mark(discipline[2], "Dorofeev", 5), new Mark(discipline[3], "Prohorov", 5),
+                new Mark(discipline[4], "Kuzmin", 4)));
 
-        exRes.add(new ExamResult("Горбунова", "Анастасия", "Степановна", 2, "ХТФ", 3,
-                new Mark(discipline[0], "Маркова", 5), new Mark(discipline[1], "Новиков", 2),
-                new Mark(discipline[2], "Гаврилов", 3), new Mark(discipline[3], "Шарапов", 2),
-                new Mark(discipline[4], "Гуляев", 4)));
+        exRes.add(new ExamResult("Gorbunova", "Anastasiya", "Stepanovna", 2, "HTF", 3,
+                new Mark(discipline[0], "Markova", 5), new Mark(discipline[1], "Novikov", 2),
+                new Mark(discipline[2], "Gavrilov", 3), new Mark(discipline[3], "Sharapov", 2),
+                new Mark(discipline[4], "Gulyaev", 4)));
 
         do {
+            System.out.println(Color.CYAN_BOLD);
             System.out.println("\nСписок функций: ");
             System.out.println("[1] - Вывод массива на экран");
             System.out.println("[2] - Показать отличников");
@@ -57,6 +58,7 @@ public class Lab4_main {
             System.out.println("[7] - Загрузить из файла");
             System.out.println("[8] - Загрузить резервную копию");
             System.out.println("[0] - Выход из программы");
+            System.out.println(Color.RESET);
             do {
                 System.out.print("Введите номер функции: ");
                 function = CheckCorrectFunction(in.nextLine());

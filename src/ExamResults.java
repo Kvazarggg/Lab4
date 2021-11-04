@@ -6,7 +6,7 @@ public class ExamResults {
 
     public static final int MARK_COUNT = 5;
     ArrayList<ExamResult> examResults;
-    final String[] discipline = {"Английский", "Математика", "Программирование", "Физика", "Химия"};
+    final String[] discipline = {"English", "Math", "Programming", "Physics", "Chemistry"};
 
     public ExamResults() {
         this.examResults = new ArrayList<>();
@@ -104,12 +104,12 @@ public class ExamResults {
 
     void saveFile(String fileName) throws IOException {
         FileWork saveToFile = new FileWork();
-        saveToFile.save(examResults, fileName);
+        saveToFile.saveBinary(examResults, fileName);
     }
 
     void loadFile(String fileName) throws IOException {
         FileWork loadToBase = new FileWork();
-        loadToBase.load(examResults, fileName);
+        loadToBase.loadBinary(examResults, fileName);
     }
 
     @Override
