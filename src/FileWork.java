@@ -15,12 +15,9 @@ public class FileWork {
 
         byte[] bytesToWrite;
         byte[] f, i, o, numberGradeBook, facultyName, course, delim;
-        byte[] subjectName1, subjectName2, subjectName3, subjectName4, subjectName5;
-        byte[] teacherName1, teacherName2, teacherName3, teacherName4, teacherName5;
-        byte[] mark1, mark2, mark3, mark4, mark5;
-        /*byte[][] subjectName = new byte[0][];
-        byte[][] teacherName;
-        byte[][] mark;*/
+        byte[][] subjectName = new byte[MARKS_COUNT][];
+        byte[][] teacherName = new byte[MARKS_COUNT][];
+        byte[][] mark = new byte[MARKS_COUNT][];
         String delimiter = ".";
         for (ExamResult object : examResults) {
             f = object.getF().getBytes(StandardCharsets.UTF_8);
@@ -32,37 +29,23 @@ public class FileWork {
             String strCourse = Integer.toString(object.getCourse());
             course = strCourse.getBytes(StandardCharsets.UTF_8);
 
-            subjectName1 = object.result[0].getSubjectName().getBytes(StandardCharsets.UTF_8);
-            subjectName2 = object.result[1].getSubjectName().getBytes(StandardCharsets.UTF_8);
-            subjectName3 = object.result[2].getSubjectName().getBytes(StandardCharsets.UTF_8);
-            subjectName4 = object.result[3].getSubjectName().getBytes(StandardCharsets.UTF_8);
-            subjectName5 = object.result[4].getSubjectName().getBytes(StandardCharsets.UTF_8);
+            for (int j = 0; j < MARKS_COUNT; j++) {
+                subjectName[j] = object.result[j].getSubjectName().getBytes(StandardCharsets.UTF_8);
+            }
 
-            teacherName1 = object.result[0].getTeacherName().getBytes(StandardCharsets.UTF_8);
-            teacherName2 = object.result[1].getTeacherName().getBytes(StandardCharsets.UTF_8);
-            teacherName3 = object.result[2].getTeacherName().getBytes(StandardCharsets.UTF_8);
-            teacherName4 = object.result[3].getTeacherName().getBytes(StandardCharsets.UTF_8);
-            teacherName5 = object.result[4].getTeacherName().getBytes(StandardCharsets.UTF_8);
+            for (int j = 0; j < MARKS_COUNT; j++) {
+                teacherName[j] = object.result[j].getTeacherName().getBytes(StandardCharsets.UTF_8);
+            }
 
             String[] m = new String[MARKS_COUNT];
             for (int j = 0; j < MARKS_COUNT; j++) {
                 m[j] = Integer.toString(object.result[j].getMark());
             }
 
-            mark1 = m[0].getBytes(StandardCharsets.UTF_8);
-            mark2 = m[1].getBytes(StandardCharsets.UTF_8);
-            mark3 = m[2].getBytes(StandardCharsets.UTF_8);
-            mark4 = m[3].getBytes(StandardCharsets.UTF_8);
-            mark5 = m[4].getBytes(StandardCharsets.UTF_8);
+            for (int j = 0; j < MARKS_COUNT; j++) {
+                mark[j] = m[j].getBytes(StandardCharsets.UTF_8);
+            }
 
-            /*for (int j = 0; j < MARKS_COUNT; j++) {
-                for (int k = 0; k < MARKS_COUNT; k++) {
-                    subjectName[j][k] = object.result[k].getSubjectName().getBytes(StandardCharsets.UTF_8);
-                    teacherName[j] = object.result[k].getTeacherName().getBytes(StandardCharsets.UTF_8);
-                    String s3 = Integer.toBinaryString(object.result[k].getMark());
-                    mark[j] = s3.getBytes(StandardCharsets.UTF_8);
-                }
-            }*/
             delim = delimiter.getBytes(StandardCharsets.UTF_8);
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             outputStream.write(f);
@@ -78,40 +61,14 @@ public class FileWork {
             outputStream.write(course);
             outputStream.write(delim);
 
-            outputStream.write(subjectName1);
-            outputStream.write(delim);
-            outputStream.write(teacherName1);
-            outputStream.write(delim);
-            outputStream.write(mark1);
-            outputStream.write(delim);
-
-            outputStream.write(subjectName2);
-            outputStream.write(delim);
-            outputStream.write(teacherName2);
-            outputStream.write(delim);
-            outputStream.write(mark2);
-            outputStream.write(delim);
-
-            outputStream.write(subjectName3);
-            outputStream.write(delim);
-            outputStream.write(teacherName3);
-            outputStream.write(delim);
-            outputStream.write(mark3);
-            outputStream.write(delim);
-
-            outputStream.write(subjectName4);
-            outputStream.write(delim);
-            outputStream.write(teacherName4);
-            outputStream.write(delim);
-            outputStream.write(mark4);
-            outputStream.write(delim);
-
-            outputStream.write(subjectName5);
-            outputStream.write(delim);
-            outputStream.write(teacherName5);
-            outputStream.write(delim);
-            outputStream.write(mark5);
-            outputStream.write(delim);
+            for (int j = 0; j < MARKS_COUNT; j++) {
+                outputStream.write(subjectName[j]);
+                outputStream.write(delim);
+                outputStream.write(teacherName[j]);
+                outputStream.write(delim);
+                outputStream.write(mark[j]);
+                outputStream.write(delim);
+            }
 
             bytesToWrite = outputStream.toByteArray();
             outFile = null;
