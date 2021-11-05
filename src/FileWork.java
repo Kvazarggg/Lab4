@@ -26,11 +26,11 @@ public class FileWork {
             f = object.getF().getBytes(StandardCharsets.UTF_8);
             i = object.getI().getBytes(StandardCharsets.UTF_8);
             o = object.getO().getBytes(StandardCharsets.UTF_8);
-            String s1 = Integer.toBinaryString(object.getNumberGradeBook());
-            numberGradeBook = s1.getBytes(StandardCharsets.UTF_8);
+            String strNGB = Integer.toString(object.getNumberGradeBook());
+            numberGradeBook = strNGB.getBytes(StandardCharsets.UTF_8);
             facultyName = object.getFacultyName().getBytes(StandardCharsets.UTF_8);
-            String s2 = Integer.toBinaryString(object.getCourse());
-            course = s2.getBytes(StandardCharsets.UTF_8);
+            String strCourse = Integer.toString(object.getCourse());
+            course = strCourse.getBytes(StandardCharsets.UTF_8);
 
             subjectName1 = object.result[0].getSubjectName().getBytes(StandardCharsets.UTF_8);
             subjectName2 = object.result[1].getSubjectName().getBytes(StandardCharsets.UTF_8);
@@ -44,16 +44,16 @@ public class FileWork {
             teacherName4 = object.result[3].getTeacherName().getBytes(StandardCharsets.UTF_8);
             teacherName5 = object.result[4].getTeacherName().getBytes(StandardCharsets.UTF_8);
 
-            String m1 = Integer.toBinaryString(object.result[0].getMark());
-            mark1 = m1.getBytes(StandardCharsets.UTF_8);
-            String m2 = Integer.toBinaryString(object.result[1].getMark());
-            mark2 = m2.getBytes(StandardCharsets.UTF_8);
-            String m3 = Integer.toBinaryString(object.result[2].getMark());
-            mark3 = m3.getBytes(StandardCharsets.UTF_8);
-            String m4 = Integer.toBinaryString(object.result[3].getMark());
-            mark4 = m4.getBytes(StandardCharsets.UTF_8);
-            String m5 = Integer.toBinaryString(object.result[4].getMark());
-            mark5 = m5.getBytes(StandardCharsets.UTF_8);
+            String[] m = new String[MARKS_COUNT];
+            for (int j = 0; j < MARKS_COUNT; j++) {
+                m[j] = Integer.toString(object.result[j].getMark());
+            }
+
+            mark1 = m[0].getBytes(StandardCharsets.UTF_8);
+            mark2 = m[1].getBytes(StandardCharsets.UTF_8);
+            mark3 = m[2].getBytes(StandardCharsets.UTF_8);
+            mark4 = m[3].getBytes(StandardCharsets.UTF_8);
+            mark5 = m[4].getBytes(StandardCharsets.UTF_8);
 
             /*for (int j = 0; j < MARKS_COUNT; j++) {
                 for (int k = 0; k < MARKS_COUNT; k++) {
@@ -247,7 +247,7 @@ public class FileWork {
                 tempArr[0] = dataBase[j];
                 String str = new String(tempArr, "UTF-8");
                 strNGB = strNGB + str;
-                numberGradeBook = Integer.parseInt(strNGB, 2);
+                numberGradeBook = Integer.parseInt(strNGB);
             }
 
             for (j = q; j < amount; j++) {
@@ -270,7 +270,7 @@ public class FileWork {
                 tempArr[0] = dataBase[j];
                 String str = new String(tempArr, "UTF-8");
                 strCourse = strCourse + str;
-                course = Integer.parseInt(strCourse, 2);
+                course = Integer.parseInt(strCourse);
             }
 
             for (int k = 0; k < MARKS_COUNT; k++) {
@@ -304,7 +304,7 @@ public class FileWork {
                     tempArr[0] = dataBase[j];
                     String str = new String(tempArr, "UTF-8");
                     strMark = strMark + str;
-                    mark[k] = Integer.parseInt(strMark, 2);
+                    mark[k] = Integer.parseInt(strMark);
                 }
             }
 

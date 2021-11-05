@@ -31,17 +31,17 @@ public class Lab4_main {
                 new Mark(discipline[2], "Demetiev", 4), new Mark(discipline[3], "Sharapov", 2),
                 new Mark(discipline[4], "Rogova", 2)));
 
-        exRes.add(new ExamResult("Sokolova", "Olga", "Nikolaevna", 2, "UNI", 3,
+        exRes.add(new ExamResult("Sokolova", "Olga", "Nikolaevna", 3, "UNI", 3,
                 new Mark(discipline[0], "Kudryashova", 2), new Mark(discipline[1], "Novikov", 2),
                 new Mark(discipline[2], "Dorofeev", 1), new Mark(discipline[3], "Kiselev", 2),
                 new Mark(discipline[4], "Zayceva", 2)));
 
-        exRes.add(new ExamResult("Vasiliev", "Rostislav", "Arkadievich", 2, "IEKSU", 3,
+        exRes.add(new ExamResult("Vasiliev", "Rostislav", "Arkadievich", 4, "IEKSU", 3,
                 new Mark(discipline[0], "Kudryashova", 3), new Mark(discipline[1], "Fedorov", 3),
                 new Mark(discipline[2], "Dorofeev", 5), new Mark(discipline[3], "Prohorov", 5),
                 new Mark(discipline[4], "Kuzmin", 4)));
 
-        exRes.add(new ExamResult("Gorbunova", "Anastasiya", "Stepanovna", 2, "HTF", 3,
+        exRes.add(new ExamResult("Gorbunova", "Anastasiya", "Stepanovna", 5, "HTF", 3,
                 new Mark(discipline[0], "Markova", 5), new Mark(discipline[1], "Novikov", 2),
                 new Mark(discipline[2], "Gavrilov", 3), new Mark(discipline[3], "Sharapov", 2),
                 new Mark(discipline[4], "Gulyaev", 4)));
